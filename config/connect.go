@@ -2,6 +2,7 @@ package config
 
 import (
 	"context"
+	"os"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -9,7 +10,7 @@ import (
 
 func Connect(ctx context.Context) (*mongo.Database, error) {
 	clientOptions := options.Client()
-	clientOptions.ApplyURI("mongodb://allobank:4ll0b4nkD3V@34.66.147.156:27017")
+	clientOptions.ApplyURI(os.Getenv("MONGO_CONNSTRING"))
 	client, err := mongo.NewClient(clientOptions)
 	if err != nil {
 		return nil, err

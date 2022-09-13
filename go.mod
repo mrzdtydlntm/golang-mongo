@@ -2,7 +2,10 @@ module gomongo
 
 go 1.17
 
-require go.mongodb.org/mongo-driver v1.10.0
+require (
+	github.com/joho/godotenv v1.4.0
+	go.mongodb.org/mongo-driver v1.10.0
+)
 
 require (
 	github.com/golang/snappy v0.0.1 // indirect
